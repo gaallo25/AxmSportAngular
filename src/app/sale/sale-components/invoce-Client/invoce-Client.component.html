@@ -1,0 +1,36 @@
+<!-- invoce-Client.component.html -->
+<div class="card" *ngIf="cliente">
+  <div class="card-body">
+    <!-- title -->
+    <h4 class="card-title">Cliente</h4>
+
+    <!-- table -->
+    <div class="table-responsive">
+      <table class="table align-middle mb-0">
+        <thead>
+          <tr>
+            <th class="text-dark font-medium fs-4">Nombre</th>
+            <th class="text-dark font-medium fs-4">Documento</th>
+            <th class="text-dark font-medium fs-4">Telefono</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="ms-3">
+                  <h5 class="mb-0 font-medium">{{ cliente.Nombre }}</h5>
+                  <span class="text-muted">{{ cliente.Correo }}</span>
+                </div>
+              </div>
+            </td>
+            <td class="fs-4">{{ cliente.Documento }}</td>
+            <td>
+              <h5 class="mb-0 fw-normal">{{ cliente.Telefono }}</h5>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

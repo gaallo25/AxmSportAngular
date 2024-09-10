@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-6 col-lg-12" *ngFor="let topcard of topcards">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <div
+            class="btn btn-lg rounded-circle round round-lg fs-6 d-flex align-items-center justify-content-center bg-light-{{
+              topcard.bgcolor
+            }} text-{{ topcard.bgcolor }}"
+          >
+            <i class="{{ topcard.icon }}"></i>
+          </div>
+          <div class="ms-3 col-md-4 col-lg-7">
+            <form (ngSubmit)="onSubmit()" #clientForm="ngForm">
+              <div class="form-group">
+                <label for="InputDocumento">Numero Documento</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="InputDocumento"
+                  [(ngModel)]="documentNumber"
+                  name="documentNumber"
+                  required
+                  aria-describedby="emailHelp"
+                  placeholder="Ingrese numero de documento"
+                />
+              </div>
+
+              <button type="submit" class="btn btn-primary mt-3">
+                Aceptar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

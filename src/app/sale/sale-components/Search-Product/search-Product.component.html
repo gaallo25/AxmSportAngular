@@ -1,0 +1,39 @@
+<div class="row" *ngIf="showClientDetails">
+  <div class="col-md-6 col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <div class="ms-3 col-md-4 col-lg-7">
+            <form #clientForm="ngForm">
+              <div class="form-group">
+                <label for="InputProducto">Producto</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="InputProducto"
+                  [(ngModel)]="productName"
+                  name="productName"
+                  required
+                  aria-describedby="emailHelp"
+                  placeholder="Ingrese el nombre"
+                  (input)="onSearchProduct()"
+                />
+              </div>
+
+              <!-- Resultados de la búsqueda -->
+              <ul *ngIf="productSuggestions.length > 0" class="list-group mt-2">
+                <li
+                  class="list-group-item cursor-pointer"
+                  *ngFor="let product of productSuggestions"
+                  (click)="onSelectProduct(product)"
+                >
+                  {{ product.Nombre }}
+                </li>
+              </ul>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

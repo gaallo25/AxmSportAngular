@@ -1,0 +1,35 @@
+<!-- sale.component.html -->
+<search-Client
+  (clientDetailsChanged)="onClientDetailsChanged($event)"
+  (ClienteExists)="onClienteReceived($event)"
+></search-Client>
+
+<div class="row">
+  <div class="col-lg-12">
+    <!-- Pasar la variable showClientDetails como input al componente hijo -->
+    <app-invoce-client
+    *ngIf="cliente"
+    [cliente]="cliente"
+      [showClientDetails]="showClientDetails"
+      
+    ></app-invoce-client>
+  </div>
+
+  <div class="col-lg-12">
+    <!-- Pasar la variable showClientDetails como input al componente hijo -->
+    <app-table-b
+      [showClientDetails]="showClientDetails"
+      (productSelected)="onProductSelected($event)"
+    ></app-table-b>
+    <div class="col-lg-12">
+      <!-- Pasar la variable showClientDetails como input al componente hijo -->
+      <app-table [showClientDetails]="showClientDetails" 
+      [data]="trow" 
+      [headers]="[
+        {field: 'Nombre', alias : 'Producto'},
+        {field: 'PrecioVenta', alias: 'Valor' },
+      ]"
+      ></app-table>
+    </div>
+  </div>
+</div>

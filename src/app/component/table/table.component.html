@@ -1,0 +1,29 @@
+<div class="row" *ngIf="showClientDetails">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Productos</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-nowrap">
+            <thead>
+              <tr>
+                <th>#</th>
+                <!-- Mostrar los alias de los encabezados -->
+                <th *ngFor="let header of headers">{{ header.alias }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of trow; index as i">
+                <td>{{ i + 1 }}</td>
+                <!-- Usar el nombre del campo para acceder a los valores en 'row' -->
+                <td *ngFor="let header of headers">
+                  {{ row[header.field] }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

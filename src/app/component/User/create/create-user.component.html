@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-md-6 col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <form class="row g-3" (ngSubmit)="onSubmit()">
+          <div class="col-md-6">
+            <label for="inputNombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="inputNombre" [(ngModel)]="cliente.Nombre" name="Nombre">
+          </div>
+          <div class="col-md-6">
+            <label for="inputDocumento" class="form-label">Documento</label>
+            <input type="text" class="form-control" id="inputDocumento" [(ngModel)]="cliente.Documento" name="Documento">
+          </div>
+          <div class="col-md-6">
+            <label for="inputDireccion" class="form-label">Direccion</label>
+            <input type="text" class="form-control" id="inputDireccion" [(ngModel)]="cliente.Direccion" name="Direccion">
+          </div>
+          <div class="col-md-6">
+            <label for="inputTelefono" class="form-label">Telefono</label>
+            <input type="text" class="form-control" id="inputTelefono" [(ngModel)]="cliente.Telefono" name="Telefono">
+          </div>
+          <div class="col-md-6">
+            <label for="inputCorreo" class="form-label">Correo</label>
+            <input 
+            type="email" 
+            email 
+            required
+            #correo="ngModel"
+            [ngClass]="{'is-invalid': correo.invalid && (correo.dirty || correo.touched)}"
+
+             class="form-control" 
+             id="inputCorreo"
+              [(ngModel)]="cliente.Correo" 
+              name="Correo">
+             <div *ngIf="correo.invalid && (correo.dirty || correo.touched)" class="text-danger">
+              <div *ngIf="correo.errors?.['required']">
+                El correo es requerido.
+              </div>
+              <div *ngIf="correo.errors?.['email']">
+                Por favor, introduce un correo electrónico válido.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="inputTaller" class="form-label">Es Taller</label>
+            <mat-slide-toggle class="form-control" [(ngModel)]="cliente.EsTaller" name="EsTaller" id="inputTaller">
+              {{ cliente.EsTaller ? 'Sí' : 'No' }}
+            </mat-slide-toggle>
+          </div>
+          <div class="col-md-6" *ngIf="cliente.EsTaller">
+            <label for="inputDescuento" class="form-label">Descuento</label>
+            <input type="number" class="form-control" id="inputDescuento" [(ngModel)]="cliente.Descuento" name="Descuento">
+          </div>
+          
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
